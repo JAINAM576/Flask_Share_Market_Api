@@ -2,7 +2,12 @@ from flask import Flask, request, jsonify
 from nselib import capital_market
 import pandas as pd
 import numpy as np
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
+# Access environment variables
+PORT = os.getenv('PORT')
 app = Flask(__name__)
 global_db=None
 def give_strctured(dataFrame):
@@ -158,4 +163,6 @@ def fetch_data_filter_endpoint():
     return jsonify({'x': x, 'y': y,'Date_time':Date_time,'DeliverableQty_Numeric':DeliverableQty_Numeric,"weekday":weekday})
     
 
-
+if __name__ == "__main__":
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=PORT)
