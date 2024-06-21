@@ -3,11 +3,7 @@ from nselib import capital_market
 import pandas as pd
 import numpy as np
 from dotenv import load_dotenv
-import os
-load_dotenv()
 
-# Access environment variables
-PORT = os.getenv('PORT')
 app = Flask(__name__)
 global_db=None
 def give_strctured(dataFrame):
@@ -164,5 +160,6 @@ def fetch_data_filter_endpoint():
     
 
 if __name__ == "__main__":
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=PORT)
+  
+    app.run(debug=True,port=8080)
+    
