@@ -1,0 +1,5 @@
+Flask==3.0.3
+nselib==0.7
+numpy==2.0.0
+pandas==2.2.2
+request== 2.31.0
