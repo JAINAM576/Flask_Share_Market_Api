@@ -118,6 +118,9 @@ def get_month(dataFrame,chance):
       month_dict.update({f'{date_range}':sum})
 
     return (list(month_dict.keys()),list(month_dict.values()))
+@app.route('/', methods=['get'])
+def fetch_data_endpoint():
+    return 'Hello world'
 
 
 @app.route('/api/fetch-data', methods=['POST'])
