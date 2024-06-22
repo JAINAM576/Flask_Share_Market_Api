@@ -3,8 +3,9 @@ from nselib import capital_market
 import pandas as pd
 import numpy as np
 import os
-
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app) 
 global_db=None
 def give_strctured(dataFrame):
    DeliverableQty_numeric=[]
