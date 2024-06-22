@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from nselib import capital_market
 import pandas as pd
 import numpy as np
+import os
 
 app = Flask(__name__)
 global_db=None
