@@ -118,12 +118,12 @@ def get_month(dataFrame,chance):
       month_dict.update({f'{date_range}':sum})
 
     return (list(month_dict.keys()),list(month_dict.values()))
-@app.route('/', methods=['get'])
+@app.route('/', methods=['GET'])
 def root():
     return 'Hello world'
 
 
-@app.route('/api/fetch-data', methods=['POST'])
+@app.route('/api/fetch-data', methods=['GET','POST'])
 def fetch_data_endpoint():
     data = request.json
     print(data)
@@ -136,7 +136,7 @@ def fetch_data_endpoint():
     weekday=global_db["weekday"].tolist()
     return jsonify({'x': x, 'y': y,'Date_time':Date_time,'DeliverableQty_Numeric':DeliverableQty_Numeric,"weekday":weekday})
 
-@app.route('/api/fetch-data-filter', methods=['POST'])
+@app.route('/api/fetch-data-filter', methods=['GET','POST'])
 def fetch_data_filter_endpoint():
     data = request.json
     print(data)
