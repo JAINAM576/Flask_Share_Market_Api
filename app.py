@@ -119,7 +119,7 @@ def get_month(dataFrame,chance):
 
     return (list(month_dict.keys()),list(month_dict.values()))
 @app.route('/', methods=['get'])
-def fetch_data_endpoint():
+def root():
     return 'Hello world'
 
 
