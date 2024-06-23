@@ -165,6 +165,15 @@ def fetch_data_filter_endpoint():
 
          y = list(map(int, y))
     return jsonify({'x': x, 'y': y,'Date_time':Date_time,'DeliverableQty_Numeric':DeliverableQty_Numeric,"weekday":weekday})
+
+@app.route('/api/dummy', methods=['GET','POST'])
+@cross_origin()
+def dummy():
+    data = request.json
+    print(data)
+    filter_range = data['x']
+    val = data['y']
+    return jsonify({'x': x, 'y': y})
     
 
 if __name__ == "__main__":
