@@ -3,9 +3,10 @@ from nselib import capital_market
 import pandas as pd
 import numpy as np
 import os
-from flask_cors import CORS
+from flask_cors import CORS.cross_origin
 app = Flask(__name__)
 CORS(app) 
+app.config['CORS_HEADERS'] = 'Content-Type'
 global_db=None
 def give_strctured(dataFrame):
    DeliverableQty_numeric=[]
@@ -120,11 +121,13 @@ def get_month(dataFrame,chance):
 
     return (list(month_dict.keys()),list(month_dict.values()))
 @app.route('/', methods=['GET'])
+@cross_origin()
 def root():
     return 'Hello world'
 
 
 @app.route('/api/fetch-data', methods=['GET','POST'])
+@cross_origin()
 def fetch_data_endpoint():
     data = request.json
     print(data)
@@ -138,6 +141,7 @@ def fetch_data_endpoint():
     return jsonify({'x': x, 'y': y,'Date_time':Date_time,'DeliverableQty_Numeric':DeliverableQty_Numeric,"weekday":weekday})
 
 @app.route('/api/fetch-data-filter', methods=['GET','POST'])
+@cross_origin()
 def fetch_data_filter_endpoint():
     data = request.json
     print(data)
