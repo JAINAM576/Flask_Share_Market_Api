@@ -171,8 +171,8 @@ def fetch_data_filter_endpoint():
 def dummy():
     data = request.json
     print(data)
-    filter_range = data['x']
-    val = data['y']
+    x = data['x']
+    y = data['y']
     return jsonify({'x': x, 'y': y})
     
 
